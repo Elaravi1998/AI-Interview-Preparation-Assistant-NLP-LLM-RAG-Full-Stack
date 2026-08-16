@@ -1,0 +1,100 @@
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = "dist"
+  functions = "../backend/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# API Route Redirects to Netlify Backend Functions
+[[redirects]]
+  from = "/api/auth/register"
+  to = "/.netlify/functions/auth-register"
+  status = 200
+
+[[redirects]]
+  from = "/api/auth/login"
+  to = "/.netlify/functions/auth-login"
+  status = 200
+
+[[redirects]]
+  from = "/api/auth/me"
+  to = "/.netlify/functions/auth-me"
+  status = 200
+
+[[redirects]]
+  from = "/api/resume/upload"
+  to = "/.netlify/functions/resume-upload"
+  status = 200
+
+[[redirects]]
+  from = "/api/resume/analyze"
+  to = "/.netlify/functions/resume-analyze"
+  status = 200
+
+[[redirects]]
+  from = "/api/job/analyze"
+  to = "/.netlify/functions/job-analyze"
+  status = 200
+
+[[redirects]]
+  from = "/api/resume-job-match"
+  to = "/.netlify/functions/resume-job-match"
+  status = 200
+
+[[redirects]]
+  from = "/api/skill-gap"
+  to = "/.netlify/functions/skill-gap"
+  status = 200
+
+[[redirects]]
+  from = "/api/interview-plan"
+  to = "/.netlify/functions/interview-plan"
+  status = 200
+
+[[redirects]]
+  from = "/api/questions/generate"
+  to = "/.netlify/functions/questions-generate"
+  status = 200
+
+[[redirects]]
+  from = "/api/interview/start"
+  to = "/.netlify/functions/interview-start"
+  status = 200
+
+[[redirects]]
+  from = "/api/interview/answer"
+  to = "/.netlify/functions/interview-answer"
+  status = 200
+
+[[redirects]]
+  from = "/api/answer/evaluate"
+  to = "/.netlify/functions/answer-evaluate"
+  status = 200
+
+[[redirects]]
+  from = "/api/interview/complete"
+  to = "/.netlify/functions/interview-complete"
+  status = 200
+
+[[redirects]]
+  from = "/api/interview/report"
+  to = "/.netlify/functions/interview-report"
+  status = 200
+
+[[redirects]]
+  from = "/api/study-assistant"
+  to = "/.netlify/functions/study-assistant"
+  status = 200
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# SPA Catch-all Fallback for React Router
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
